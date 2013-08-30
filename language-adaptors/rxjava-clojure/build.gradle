@@ -6,7 +6,7 @@ dependencies {
 
     // clojure
     compile 'org.clojure:clojure:1.4.+'
-    //compile 'clj-http:clj-http:0.6.4' // https://clojars.org/clj-http
+    compile 'clj-http:clj-http:0.6.4' // https://clojars.org/clj-http
 }
 
 /*
@@ -33,18 +33,7 @@ eclipse {
   }
 }
 
-tasks.clojureTest {  
-    classpath = classpath + configurations.provided
-}
-
-/*
- * benjchristensen => Commenting out on Aug 30 2013 as these aren't compiling
- *                    as it can't find the interop.clj file. Doesn't block 
- *                    rest of project so ignoring until someone can fix.
- * tasks.compileExamplesClojure {  
- *    classpath = classpath + configurations.provided
- * }
- */
+tasks.compileExamplesClojure.classpath = files(tasks.compileClojure.destinationDir) + tasks.compileClojure.classpath
 
 jar {
     manifest {
