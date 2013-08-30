@@ -37,9 +37,14 @@ tasks.clojureTest {
     classpath = classpath + configurations.provided
 }
 
-tasks.compileExamplesClojure {  
-    classpath = classpath + configurations.provided
-}
+/*
+ * benjchristensen => Commenting out on Aug 30 2013 as these aren't compiling
+ *                    as it can't find the interop.clj file. Doesn't block 
+ *                    rest of project so ignoring until someone can fix.
+ * tasks.compileExamplesClojure {  
+ *    classpath = classpath + configurations.provided
+ * }
+ */
 
 jar {
     manifest {
